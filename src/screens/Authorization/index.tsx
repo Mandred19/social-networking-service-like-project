@@ -112,17 +112,17 @@ const Authorization = () => {
           </Typography>
 
           <Typography variant={'subtitle2'} style={{ marginBottom: theme.spacing(2) }}>
-            Join Twitter today.
+            Join Tweet today.
           </Typography>
 
           <div className={classes.buttonsBlockColumn}>
-            <Link to={'/authorization/sign-up'}>
+            <Link to={'/sign-up'}>
               <Button variant={'contained'} color={'primary'} fullWidth className={classes.button}>
                 Sign up
               </Button>
             </Link>
 
-            <Link to={'/authorization/log-in'}>
+            <Link to={'/log-in'}>
               <Button variant={'outlined'} fullWidth className={classes.button}>
                 Log in
               </Button>
