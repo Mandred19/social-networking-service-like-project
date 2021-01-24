@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { Button, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 
 import theme from '../../theme';
@@ -83,16 +85,19 @@ const Authorization = () => {
         <ul className={classes.infoBlockList}>
           <li className={classes.infoBlockListItem}>
             <SearchOutlinedIcon fontSize={'large'} className={classes.infoBlockListItemIcon} />
+
             <Typography variant={'h6'}>Follow your interests.</Typography>
           </li>
 
           <li className={classes.infoBlockListItem}>
             <PeopleOutlineIcon fontSize={'large'} className={classes.infoBlockListItemIcon} />
+
             <Typography variant={'h6'}>Hear what people are talking about.</Typography>
           </li>
 
           <li className={classes.infoBlockListItem}>
             <ChatBubbleOutlineIcon fontSize={'large'} className={classes.infoBlockListItemIcon} />
+
             <Typography variant={'h6'}>Join the conversation.</Typography>
           </li>
         </ul>
@@ -111,13 +116,17 @@ const Authorization = () => {
           </Typography>
 
           <div className={classes.buttonsBlockColumn}>
-            <Button variant={'contained'} color={'primary'} fullWidth className={classes.button}>
-              Sign up
-            </Button>
+            <Link to={'/authorization/sign-up'}>
+              <Button variant={'contained'} color={'primary'} fullWidth className={classes.button}>
+                Sign up
+              </Button>
+            </Link>
 
-            <Button variant={'outlined'} fullWidth className={classes.button}>
-              Log in
-            </Button>
+            <Link to={'/authorization/log-in'}>
+              <Button variant={'outlined'} fullWidth className={classes.button}>
+                Log in
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

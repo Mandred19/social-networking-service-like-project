@@ -5,3 +5,7 @@ html, body, #root {
   overflow: hidden;
   box-sizing: border-box;
 }
+
+a {
+  text-decoration: none;
+}
