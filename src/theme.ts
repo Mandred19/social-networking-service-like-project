@@ -10,23 +10,26 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#009999',
-      dark: '#006363',
-      contrastText: '#fff',
+      light: '#5CCCCC',
+      dark: '#1D7373',
     },
     secondary: {
       main: '#FF9640',
       dark: '#FF7400',
     },
     background: {
-      main: '#fff',
+      default: '#fff',
+      paper: '#5CCCCC',
     },
     error: {
       main: '#FF5300',
     },
     text: {
-      main: '#0D0C0E',
+      primary: '#0D0C0E',
+      secondary: '#fff',
     },
   },
+  spacing: 8,
   shadows: [],
   overrides: {
     MuiButton: {
