@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Authorization from '../screens/Authorization';
 import AuthorizationRegistration from '../screens/Authorization/AuthorizationRegistration';
 import AuthorizationLogIn from '../screens/Authorization/AuthorizationLogIn';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const Router = () => {
+const Router: FC = (): ReactElement => {
   return (
     <Switch>
       {/* Auth routes */}

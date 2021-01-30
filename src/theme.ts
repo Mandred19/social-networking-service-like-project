@@ -1,11 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
+import { createMuiTheme, Theme } from '@material-ui/core/styles';
 
-import { createMuiTheme } from '@material-ui/core/styles';
-
-const theme = createMuiTheme({
+const theme: Theme = createMuiTheme({
   typography: {
-    fontFamily: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Ubuntu', 'Helvetica Neue', 'sans-serif'],
+    fontFamily: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Ubuntu', 'Helvetica Neue', 'sans-serif'].join(','),
   },
   palette: {
     primary: {
@@ -30,7 +27,6 @@ const theme = createMuiTheme({
     },
   },
   spacing: 8,
-  shadows: [],
   overrides: {
     MuiButton: {
       root: {

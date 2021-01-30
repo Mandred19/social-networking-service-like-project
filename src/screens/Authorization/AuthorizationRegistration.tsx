@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 
 import { makeStyles, Theme, createStyles, Button, Typography, TextField } from '@material-ui/core';
 
@@ -52,8 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const AuthorizationRegistration = () => {
+const AuthorizationRegistration: FC = (): ReactElement => {
   const classes = useStyles();
 
   const signUp = (e: React.SyntheticEvent) => {
