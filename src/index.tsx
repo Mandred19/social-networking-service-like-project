@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'fontsource-roboto';
 
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, CssBaseline } from '@material-ui/core';
 
 import App from './App';
 
@@ -16,7 +16,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <CssBaseline>
+        <App />
+      </CssBaseline>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
