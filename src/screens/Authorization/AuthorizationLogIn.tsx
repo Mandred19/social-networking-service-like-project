@@ -63,7 +63,7 @@ const AuthorizationLogIn = () => {
       </div>
 
       <form onSubmit={logIn} className={classes.form} autoComplete="off">
-        <TextField type={'text'} variant={'outlined'} className={classes.input} fullWidth label={'Phone, email, or username'} placeholder={'Phone, email, or username'} />
+        <TextField type={'text'} variant={'outlined'} className={classes.input} autoFocus fullWidth label={'Phone, email, or username'} placeholder={'Phone, email, or username'} />
 
         <TextField type={'password'} variant={'outlined'} className={classes.input} fullWidth label={'Password'} placeholder={'Password'} />
 
