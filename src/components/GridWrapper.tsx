@@ -1,10 +1,8 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
 
-import { createStyles, Grid, makeStyles, Theme, Container } from '@material-ui/core';
+import { createStyles, Grid, makeStyles, Container } from '@material-ui/core';
 
-import theme from '../theme';
-
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     container: {
       height: '100%',

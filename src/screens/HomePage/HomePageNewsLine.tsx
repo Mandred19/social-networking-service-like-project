@@ -3,6 +3,7 @@ import React, { FC, ReactElement } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 import PageTitle from '../../components/PageTitle';
+import NewsCard from './NewsCard';
 
 import theme from '../../theme';
 
@@ -20,6 +21,8 @@ const HomePageNewsLine: FC = (): ReactElement => {
   return (
     <section className={classes.wrapper}>
       <PageTitle />
+
+      <NewsCard />
     </section>
   );
 };
