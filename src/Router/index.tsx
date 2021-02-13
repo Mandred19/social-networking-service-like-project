@@ -16,7 +16,10 @@ const Router: FC = (): ReactElement => {
       <Route path="/log-in" exact component={AuthorizationLogIn} />
 
       {/* HomePage routes */}
-      <Route path="/" exact component={Main} />
+      <Route path="/home" exact component={Main} />
+
+      {/* All */}
+      <Route path="/" component={Authorization} />
     </Switch>
   );
 };

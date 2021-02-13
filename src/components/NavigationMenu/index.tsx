@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-import { Button, createStyles, IconButton, makeStyles, Theme } from '@material-ui/core';
+import { Button, createStyles, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
 
 import TwitterIcon from '@material-ui/icons/Twitter';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
@@ -27,24 +28,27 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const navRouteList = [
-  { to: '/', id: 'home', title: 'Home', icon: <HomeOutlinedIcon /> },
-  { to: '/', id: 'explore', title: 'Explore', icon: <SearchOutlinedIcon /> },
-  { to: '/', id: 'notifications', title: 'Notifications', icon: <NotificationsNoneOutlinedIcon /> },
-  { to: '/', id: 'messages', title: 'Messages', icon: <EmailOutlinedIcon /> },
-  { to: '/', id: 'bookmarks', title: 'Bookmarks', icon: <BookmarkBorderOutlinedIcon /> },
-  { to: '/', id: 'lists', title: 'Lists', icon: <ListAltOutlinedIcon /> },
-  { to: '/', id: 'profile', title: 'Profile', icon: <PersonOutlineOutlinedIcon /> },
-  { to: '/', id: 'more', title: 'More', icon: <MoreOutlinedIcon /> },
+  { to: '/home', id: 'home', title: 'Home', icon: <HomeOutlinedIcon /> },
+  { to: '/explore', id: 'explore', title: 'Explore', icon: <SearchOutlinedIcon /> },
+  { to: '/notifications', id: 'notifications', title: 'Notifications', icon: <NotificationsNoneOutlinedIcon /> },
+  { to: '/messages', id: 'messages', title: 'Messages', icon: <EmailOutlinedIcon /> },
+  { to: '/bookmarks', id: 'bookmarks', title: 'Bookmarks', icon: <BookmarkBorderOutlinedIcon /> },
+  { to: '/lists', id: 'lists', title: 'Lists', icon: <ListAltOutlinedIcon /> },
+  { to: '/profile', id: 'profile', title: 'Profile', icon: <PersonOutlineOutlinedIcon /> },
+  { to: '/more', id: 'more', title: 'More', icon: <MoreOutlinedIcon /> },
 ];
 
 const renderNavRouteList = () => {
   const classes = useStyles();
+  const route = useLocation();
 
   return navRouteList.map((item) => {
     return (
-      <Button variant={'text'} color={'primary'} size={'large'} className={classes.button} startIcon={item.icon} key={item.id}>
-        {item.title}
-      </Button>
+      <Link to={item.to} key={item.id}>
+        <Button variant={'text'} color={route.pathname === item.to ? 'primary' : 'default'} size={'large'} className={classes.button} startIcon={item.icon}>
+          <Typography variant={'h6'}>{item.title}</Typography>
+        </Button>
+      </Link>
     );
   });
 };
@@ -54,9 +58,11 @@ const NavigationMenu: FC = (): ReactElement => {
 
   return (
     <section className={classes.list}>
-      <IconButton color={'primary'} size={'medium'} className={classes.button}>
-        <TwitterIcon />
-      </IconButton>
+      <Link to={'/home'}>
+        <IconButton color={'primary'} size={'medium'} className={classes.button}>
+          <TwitterIcon />
+        </IconButton>
+      </Link>
 
       {renderNavRouteList()}
 
