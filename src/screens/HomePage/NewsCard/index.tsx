@@ -37,8 +37,9 @@ const actionButtons = [
   { id: '4', label: 'share', color: '#999', icon: <ShareOutlinedIcon /> },
 ];
 
-const NewsCard: FC = (): ReactElement => {
+const NewsCard: FC = (tweet: any): ReactElement => {
   const classes = useStyles();
+  const { user } = tweet;
 
   const renderActionButtons = (amount: number) => {
     return actionButtons.map((item) => {
@@ -58,10 +59,7 @@ const NewsCard: FC = (): ReactElement => {
     <Card>
       <CardHeader
         avatar={
-          <Avatar
-            src="https://images.unsplash.com/photo-1613037060849-110842e70cbc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-            aria-label="recipe"
-          >
+          <Avatar src={user.avatarUrl} aria-label="recipe">
             R
           </Avatar>
         }
@@ -70,21 +68,17 @@ const NewsCard: FC = (): ReactElement => {
             <MoreHorizOutlinedIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={user.fullName}
+        subheader="Subheader"
       />
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {tweet.text}
         </Typography>
       </CardContent>
 
-      <CardMedia
-        image="https://images.unsplash.com/photo-1613169629286-8457b2ffad9f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-        title="title"
-        className={classes.cardMedia}
-      />
+      <CardMedia image={tweet.mediaUrl} title="mediaTitle" className={classes.cardMedia} />
 
       <CardActions className={classes.cardActions}>{renderActionButtons(2)}</CardActions>
     </Card>
