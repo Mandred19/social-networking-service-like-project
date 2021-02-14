@@ -14,16 +14,57 @@ const useStyles = makeStyles((theme: Theme) =>
     wrapper: {
       height: '100%',
     },
+    cardMedia: {
+      paddingTop: '56.25%',
+    },
+    cardActions: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    actionButtonWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+    },
+    actionButtonSubtitle: {},
   }),
 );
+
+const actionButtons = [
+  { id: '1', label: 'reply', color: '#999', icon: <ReplyAllOutlinedIcon /> },
+  { id: '2', label: 'retweet', color: '#999', icon: <RepeatOutlinedIcon /> },
+  { id: '3', label: 'add to favorites', color: '#999', icon: <FavoriteBorderOutlinedIcon /> },
+  { id: '4', label: 'share', color: '#999', icon: <ShareOutlinedIcon /> },
+];
 
 const NewsCard: FC = (): ReactElement => {
   const classes = useStyles();
 
+  const renderActionButtons = (amount: number) => {
+    return actionButtons.map((item) => {
+      return (
+        <div key={item.id} className={classes.actionButtonWrapper}>
+          <IconButton aria-label={item.label}>{item.icon}</IconButton>
+
+          <Typography variant={'subtitle2'} className={classes.actionButtonSubtitle}>
+            {amount}
+          </Typography>
+        </div>
+      );
+    });
+  };
+
   return (
     <Card>
       <CardHeader
-        avatar={<Avatar aria-label="recipe">R</Avatar>}
+        avatar={
+          <Avatar
+            src="https://images.unsplash.com/photo-1613037060849-110842e70cbc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+            aria-label="recipe"
+          >
+            R
+          </Avatar>
+        }
         action={
           <IconButton aria-label="settings">
             <MoreHorizOutlinedIcon />
@@ -39,25 +80,13 @@ const NewsCard: FC = (): ReactElement => {
         </Typography>
       </CardContent>
 
-      <CardMedia image="https://picspree.com/ru/photos/swiss-mountains-318243" title="title" />
+      <CardMedia
+        image="https://images.unsplash.com/photo-1613169629286-8457b2ffad9f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+        title="title"
+        className={classes.cardMedia}
+      />
 
-      <CardActions>
-        <IconButton aria-label="reply">
-          <ReplyAllOutlinedIcon />
-        </IconButton>
-
-        <IconButton aria-label="retweet">
-          <RepeatOutlinedIcon />
-        </IconButton>
-
-        <IconButton aria-label="add to favorites">
-          <FavoriteBorderOutlinedIcon />
-        </IconButton>
-
-        <IconButton aria-label="share">
-          <ShareOutlinedIcon />
-        </IconButton>
-      </CardActions>
+      <CardActions className={classes.cardActions}>{renderActionButtons(2)}</CardActions>
     </Card>
   );
 };
