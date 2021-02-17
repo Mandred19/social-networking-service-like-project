@@ -7,8 +7,8 @@ import PageTitle from '../../components/PageTitle';
 import NewsCard from './NewsCard';
 
 import theme from '../../theme';
-import { fetchTweets } from '../../store/tweets';
-import { ITweet, ITweetsState } from '../../store/tweets/types';
+import { fetchTweets, getAllTweets } from '../../store/tweets';
+import { ITweet } from '../../store/tweets/types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,14 +21,14 @@ const useStyles = makeStyles((theme: Theme) =>
 const HomePageNewsLine: FC = (): ReactElement => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const tweets = useSelector((state: ITweetsState) => state.tweets); // TODO Разобраться с использованием селектора
+  const tweets = useSelector(getAllTweets);
 
   useEffect(() => {
     dispatch(fetchTweets());
   }, []);
 
   const renderTweets = () => {
-    return tweets.tweets.map((item: ITweet) => {
+    return tweets.map((item: ITweet) => {
       return <NewsCard {...item} key={item._id} />;
     });
   };

@@ -17,6 +17,6 @@ export interface ITweet {
 }
 
 export interface ITweetsState {
-  tweets: any; // TODO Добавить тип
+  tweets: ITweet[];
   loadingState: TWEETS_LOADING_STATE;
 }
