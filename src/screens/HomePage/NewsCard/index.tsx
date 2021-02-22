@@ -14,8 +14,16 @@ const useStyles = makeStyles((theme: Theme) =>
     wrapper: {
       height: '100%',
     },
+    cardWrapper: {
+      borderRadius: 0,
+    },
+    cardContent: {
+      padding: `0 ${theme.spacing(2)}px 0 94px`,
+    },
     cardMedia: {
       paddingTop: '56.25%',
+      marginTop: theme.spacing(1),
+      borderRadius: theme.spacing(1),
     },
     cardActions: {
       display: 'flex',
@@ -56,7 +64,7 @@ const NewsCard: FC = (tweet: any): ReactElement => {
   };
 
   return (
-    <Card>
+    <Card className={classes.cardWrapper}>
       <CardHeader
         avatar={
           <Avatar src={user.avatarUrl} aria-label="recipe">
@@ -72,15 +80,15 @@ const NewsCard: FC = (tweet: any): ReactElement => {
         subheader="Subheader"
       />
 
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+      <CardContent className={classes.cardContent}>
+        <Typography variant="body2" color="textPrimary" component="p">
           {tweet.text}
         </Typography>
+
+        <CardMedia image={tweet.mediaUrl} title="mediaTitle" className={classes.cardMedia} />
+
+        <CardActions className={classes.cardActions}>{renderActionButtons(2)}</CardActions>
       </CardContent>
-
-      <CardMedia image={tweet.mediaUrl} title="mediaTitle" className={classes.cardMedia} />
-
-      <CardActions className={classes.cardActions}>{renderActionButtons(2)}</CardActions>
     </Card>
   );
 };

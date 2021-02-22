@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { createStyles, makeStyles, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Paper, Typography } from '@material-ui/core';
 
 import { navRouteList, navRouteItem } from '../helpers/navRouteList';
 
@@ -11,7 +11,6 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      borderBottom: '1px solid #999',
       padding: '8px 16px',
     },
   }),
@@ -26,9 +25,9 @@ const PageTitle: FC = (): ReactElement => {
   };
 
   return (
-    <section className={classes.wrapper}>
+    <Paper className={classes.wrapper}>
       <Typography variant={'h5'}>{pageTitle()?.title}</Typography>
-    </section>
+    </Paper>
   );
 };
 

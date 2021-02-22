@@ -8,6 +8,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import { navRouteList, navRouteItem } from '../../helpers/navRouteList';
 
 import theme from '../../theme';
+import { betweenChildrenMixin } from '../../theme/styleMixins';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,6 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
       flexFlow: 'column nowrap',
       borderRight: '1px solid #999',
       height: '100%',
+      paddingRight: theme.spacing(2),
+      ...betweenChildrenMixin({ marginBottom: theme.spacing(1) }),
     },
     button: {},
   }),
@@ -51,7 +54,7 @@ const NavigationMenu: FC = (): ReactElement => {
 
       {renderNavRouteList()}
 
-      <Button variant={'contained'} color={'primary'} size={'large'} className={classes.button}>
+      <Button variant={'contained'} color={'primary'} size={'large'} fullWidth={true}>
         Tweet
       </Button>
     </section>
