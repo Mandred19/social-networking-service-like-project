@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
     wrapper: {
       borderLeft: '1px solid #999',
       height: '100%',
+      paddingLeft: theme.spacing(2),
     },
   }),
 );
