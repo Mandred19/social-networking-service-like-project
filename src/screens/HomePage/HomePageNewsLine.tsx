@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
+import Preloader from '../../components/Preloader';
 import PageTitle from '../../components/PageTitle';
 import NewsCard from './NewsCard';
 
-import theme from '../../theme';
 import { fetchTweets, getAllTweets } from '../../store/tweets';
 import { ITweet } from '../../store/tweets/types';
 
@@ -14,6 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
       height: '100%',
+      display: 'flex',
+      flexFlow: 'column nowrap',
+    },
+    list: {
+      height: '100%',
+    },
+    preloader: {
+      margin: '0 auto',
     },
   }),
 );
@@ -36,8 +44,7 @@ const HomePageNewsLine: FC = (): ReactElement => {
   return (
     <section className={classes.wrapper}>
       <PageTitle />
-
-      {renderTweets()}
+      {tweets.length ? <div className={classes.list}>{renderTweets()}</div> : <Preloader />}
     </section>
   );
 };
