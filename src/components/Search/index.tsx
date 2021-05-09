@@ -20,9 +20,9 @@ const Search: FC = (): ReactElement => {
 
   return (
     <TextField
-      label="Search"
-      variant="outlined"
-      fullWidth={true}
+      placeholder={'Search'}
+      variant={'outlined'}
+      fullWidth
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">

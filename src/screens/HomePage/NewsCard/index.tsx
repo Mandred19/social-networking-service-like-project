@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 
 import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, createStyles, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
+
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import ReplyAllOutlinedIcon from '@material-ui/icons/ReplyAllOutlined';
 import RepeatOutlinedIcon from '@material-ui/icons/RepeatOutlined';
@@ -8,6 +9,7 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 
 import theme from '../../../theme';
+import { betweenChildrenMixin } from '../../../theme/styleMixins';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: `0 ${theme.spacing(2)}px 0 94px`,
     },
     cardMedia: {
-      paddingTop: '56.25%',
+      paddingTop: '56.25%', // 16:9
       marginTop: theme.spacing(1),
       borderRadius: theme.spacing(1),
     },
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
     actionButtonWrapper: {
       display: 'flex',
       alignItems: 'center',
+      ...betweenChildrenMixin({ marginRight: theme.spacing(0.5) }),
     },
     actionButtonSubtitle: {},
   }),

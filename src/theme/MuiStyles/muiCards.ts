@@ -1,5 +1,8 @@
 const muiCards = {
   MuiCardHeader: {
+    root: {
+      paddingBottom: 8,
+    },
     title: {
       color: '#0D0C0E',
       fontWeight: 700,

@@ -5,6 +5,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 import Preloader from '../../components/Preloader';
 import PageTitle from '../../components/PageTitle';
+import NewTweet from '../../components/NewTweet';
 import NewsCard from './NewsCard';
 
 import { fetchTweets, getAllTweets } from '../../store/tweets';
@@ -44,6 +45,9 @@ const HomePageNewsLine: FC = (): ReactElement => {
   return (
     <section className={classes.wrapper}>
       <PageTitle />
+
+      <NewTweet />
+
       {tweets.length ? <div className={classes.list}>{renderTweets()}</div> : <Preloader />}
     </section>
   );
