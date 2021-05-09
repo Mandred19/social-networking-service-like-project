@@ -4,7 +4,7 @@ import { TWEETS_API } from '../../service/api/tweetsApi';
 import { TWEETS_LOADING_STATE } from '../../tweets/types';
 import { fetchTweets, setLoadingState, setTweets } from '../../tweets';
 
-function* fetchTweetsRequest() {
+function* fetchTweetsRequest(): any {
   try {
     yield put(setLoadingState(TWEETS_LOADING_STATE.PENDING));
     const response = yield call(TWEETS_API.loadAllTweets);
