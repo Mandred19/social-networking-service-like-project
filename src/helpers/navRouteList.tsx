@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
@@ -17,12 +17,12 @@ export interface navRouteItem {
 }
 
 export const navRouteList: navRouteItem[] = [
-  { to: '/home', id: 'home', title: 'Home', icon: <HomeOutlinedIcon /> },
-  { to: '/explore', id: 'explore', title: 'Explore', icon: <SearchOutlinedIcon /> },
-  { to: '/notifications', id: 'notifications', title: 'Notifications', icon: <NotificationsNoneOutlinedIcon /> },
-  { to: '/messages', id: 'messages', title: 'Messages', icon: <EmailOutlinedIcon /> },
-  { to: '/bookmarks', id: 'bookmarks', title: 'Bookmarks', icon: <BookmarkBorderOutlinedIcon /> },
-  { to: '/lists', id: 'lists', title: 'Lists', icon: <ListAltOutlinedIcon /> },
-  { to: '/profile', id: 'profile', title: 'Profile', icon: <PersonOutlineOutlinedIcon /> },
-  { to: '/more', id: 'more', title: 'More', icon: <MoreOutlinedIcon /> },
+  {to: '/home', id: 'home', title: 'Home', icon: <HomeOutlinedIcon/>},
+  {to: '/explore', id: 'explore', title: 'Explore', icon: <SearchOutlinedIcon/>},
+  {to: '/notifications', id: 'notifications', title: 'Notifications', icon: <NotificationsNoneOutlinedIcon/>},
+  {to: '/messages', id: 'messages', title: 'Messages', icon: <EmailOutlinedIcon/>},
+  {to: '/bookmarks', id: 'bookmarks', title: 'Bookmarks', icon: <BookmarkBorderOutlinedIcon/>},
+  {to: '/lists', id: 'lists', title: 'Lists', icon: <ListAltOutlinedIcon/>},
+  {to: '/profile', id: 'profile', title: 'Profile', icon: <PersonOutlineOutlinedIcon/>},
+  {to: '/more', id: 'more', title: 'More', icon: <MoreOutlinedIcon/>},
 ];

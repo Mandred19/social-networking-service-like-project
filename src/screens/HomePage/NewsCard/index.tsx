@@ -1,15 +1,25 @@
-import React, { FC, ReactElement } from 'react';
+import React, {FC, ReactElement} from 'react';
 
-import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, createStyles, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
+import {
+  Avatar,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  createStyles,
+  IconButton,
+  makeStyles,
+  Theme,
+  Typography
+} from '@material-ui/core';
 
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import ReplyAllOutlinedIcon from '@material-ui/icons/ReplyAllOutlined';
 import RepeatOutlinedIcon from '@material-ui/icons/RepeatOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
-
-import theme from '../../../theme';
-import { betweenChildrenMixin } from '../../../theme/styleMixins';
+import {betweenChildrenMixin} from '../../../theme/styleMixins';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,22 +45,22 @@ const useStyles = makeStyles((theme: Theme) =>
     actionButtonWrapper: {
       display: 'flex',
       alignItems: 'center',
-      ...betweenChildrenMixin({ marginRight: theme.spacing(0.5) }),
+      ...betweenChildrenMixin({marginRight: theme.spacing(0.5)}),
     },
     actionButtonSubtitle: {},
   }),
 );
 
 const actionButtons = [
-  { id: '1', label: 'reply', color: '#999', icon: <ReplyAllOutlinedIcon /> },
-  { id: '2', label: 'retweet', color: '#999', icon: <RepeatOutlinedIcon /> },
-  { id: '3', label: 'add to favorites', color: '#999', icon: <FavoriteBorderOutlinedIcon /> },
-  { id: '4', label: 'share', color: '#999', icon: <ShareOutlinedIcon /> },
+  {id: '1', label: 'reply', color: '#999', icon: <ReplyAllOutlinedIcon/>},
+  {id: '2', label: 'retweet', color: '#999', icon: <RepeatOutlinedIcon/>},
+  {id: '3', label: 'add to favorites', color: '#999', icon: <FavoriteBorderOutlinedIcon/>},
+  {id: '4', label: 'share', color: '#999', icon: <ShareOutlinedIcon/>},
 ];
 
 const NewsCard: FC = (tweet: any): ReactElement => {
   const classes = useStyles();
-  const { user } = tweet;
+  const {user} = tweet;
 
   const renderActionButtons = (amount: number) => {
     return actionButtons.map((item) => {
@@ -76,7 +86,7 @@ const NewsCard: FC = (tweet: any): ReactElement => {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreHorizOutlinedIcon />
+            <MoreHorizOutlinedIcon/>
           </IconButton>
         }
         title={user.fullName}
@@ -88,7 +98,7 @@ const NewsCard: FC = (tweet: any): ReactElement => {
           {tweet.text}
         </Typography>
 
-        <CardMedia image={tweet.mediaUrl} title="mediaTitle" className={classes.cardMedia} />
+        <CardMedia image={tweet.mediaUrl} title="mediaTitle" className={classes.cardMedia}/>
 
         <CardActions className={classes.cardActions}>{renderActionButtons(2)}</CardActions>
       </CardContent>

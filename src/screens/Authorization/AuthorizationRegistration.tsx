@@ -1,6 +1,6 @@
-import React, { FC, ReactElement } from 'react';
+import React, {FC, ReactElement} from 'react';
 
-import { makeStyles, Theme, createStyles, Button, Typography, TextField } from '@material-ui/core';
+import {Button, createStyles, makeStyles, TextField, Theme, Typography} from '@material-ui/core';
 
 import TwitterIcon from '@material-ui/icons/Twitter';
 
@@ -65,7 +65,7 @@ const AuthorizationRegistration: FC = (): ReactElement => {
     <form onSubmit={signUp} autoComplete="off" className={classes.wrapper}>
       <div className={classes.header}>
         <div className={classes.headerTop}>
-          <TwitterIcon color={'primary'} fontSize={'large'} className={classes.headerTopIcon} />
+          <TwitterIcon color={'primary'} fontSize={'large'} className={classes.headerTopIcon}/>
 
           <Button type={'submit'} variant={'contained'} color={'primary'}>
             Next
@@ -78,9 +78,11 @@ const AuthorizationRegistration: FC = (): ReactElement => {
       </div>
 
       <div className={classes.inputGroup}>
-        <TextField type={'text'} variant={'outlined'} className={classes.input} autoFocus fullWidth label={'Name'} placeholder={'Name'} />
+        <TextField type={'text'} variant={'outlined'} className={classes.input} autoFocus fullWidth label={'Name'}
+                   placeholder={'Name'}/>
 
-        <TextField type={'email'} variant={'outlined'} className={classes.input} fullWidth label={'Email'} placeholder={'Email'} />
+        <TextField type={'email'} variant={'outlined'} className={classes.input} fullWidth label={'Email'}
+                   placeholder={'Email'}/>
       </div>
     </form>
   );

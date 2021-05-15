@@ -1,6 +1,6 @@
-import React, { FC, ReactElement } from 'react';
+import React, {FC, ReactElement} from 'react';
 
-import { CircularProgress, createStyles, makeStyles, Theme } from '@material-ui/core';
+import {CircularProgress, createStyles, makeStyles, Theme} from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,7 +16,7 @@ const Preloader: FC = (): ReactElement => {
 
   return (
     <section className={classes.wrapper}>
-      <CircularProgress color={'primary'} />
+      <CircularProgress color={'primary'}/>
     </section>
   );
 };

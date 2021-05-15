@@ -1,6 +1,6 @@
-import React, { FC, ReactElement } from 'react';
+import React, {FC, ReactElement} from 'react';
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import {createStyles, makeStyles, Theme} from '@material-ui/core';
 
 import Search from '../Search';
 
@@ -27,7 +27,7 @@ const SupportingBlock: FC = (): ReactElement => {
 
   return (
     <section className={classes.wrapper}>
-      <Search />
+      <Search/>
     </section>
   );
 };

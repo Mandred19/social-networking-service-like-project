@@ -1,8 +1,8 @@
-import React, { FC, ReactElement } from 'react';
+import React, {FC, ReactElement} from 'react';
 
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-import { Button, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import {Button, createStyles, makeStyles, Theme, Typography} from '@material-ui/core';
 
 import theme from '../../theme';
 
@@ -79,23 +79,23 @@ const Authorization: FC = (): ReactElement => {
   return (
     <section className={classes.wrapper}>
       <section className={classes.infoBlock}>
-        <TwitterIcon color={'primary'} className={classes.infoBlockIcon} />
+        <TwitterIcon color={'primary'} className={classes.infoBlockIcon}/>
 
         <ul className={classes.infoBlockList}>
           <li className={classes.infoBlockListItem}>
-            <SearchOutlinedIcon fontSize={'large'} className={classes.infoBlockListItemIcon} />
+            <SearchOutlinedIcon fontSize={'large'} className={classes.infoBlockListItemIcon}/>
 
             <Typography variant={'h6'}>Follow your interests.</Typography>
           </li>
 
           <li className={classes.infoBlockListItem}>
-            <PeopleOutlineIcon fontSize={'large'} className={classes.infoBlockListItemIcon} />
+            <PeopleOutlineIcon fontSize={'large'} className={classes.infoBlockListItemIcon}/>
 
             <Typography variant={'h6'}>Hear what people are talking about.</Typography>
           </li>
 
           <li className={classes.infoBlockListItem}>
-            <ChatBubbleOutlineIcon fontSize={'large'} className={classes.infoBlockListItemIcon} />
+            <ChatBubbleOutlineIcon fontSize={'large'} className={classes.infoBlockListItemIcon}/>
 
             <Typography variant={'h6'}>Join the conversation.</Typography>
           </li>
@@ -104,13 +104,13 @@ const Authorization: FC = (): ReactElement => {
 
       <section className={classes.actionsBlock}>
         <div className={classes.actionBlockWrapper}>
-          <TwitterIcon color={'primary'} fontSize={'large'} style={{ marginBottom: theme.spacing(3) }} />
+          <TwitterIcon color={'primary'} fontSize={'large'} style={{marginBottom: theme.spacing(3)}}/>
 
-          <Typography variant={'h4'} style={{ marginBottom: theme.spacing(5) }}>
+          <Typography variant={'h4'} style={{marginBottom: theme.spacing(5)}}>
             See what’s happening in the world right now
           </Typography>
 
-          <Typography variant={'subtitle2'} style={{ marginBottom: theme.spacing(2) }}>
+          <Typography variant={'subtitle2'} style={{marginBottom: theme.spacing(2)}}>
             Join Tweet today.
           </Typography>
 

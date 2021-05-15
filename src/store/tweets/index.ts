@@ -1,5 +1,5 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ITweet, TWEETS_LOADING_STATE } from './types';
+import {createEntityAdapter, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {ITweet, TWEETS_LOADING_STATE} from './types';
 
 const tweetsAdapter = createEntityAdapter<ITweet>({
   selectId: (item: ITweet): string => item._id || '',
@@ -25,9 +25,9 @@ const tweetsSlice = createSlice({
   },
 });
 
-export const { setLoadingState, setTweets, fetchTweets } = tweetsSlice.actions;
+export const {setLoadingState, setTweets, fetchTweets} = tweetsSlice.actions;
 
-export const { selectAll: getAllTweets } = tweetsAdapter.getSelectors((state: any) => {
+export const {selectAll: getAllTweets} = tweetsAdapter.getSelectors((state: any) => {
   return state.tweets;
 });
 

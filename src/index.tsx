@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 
 import './index.css';
 import 'fontsource-roboto';
 
-import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import {CssBaseline, ThemeProvider} from '@material-ui/core';
 
 import App from './App';
 
@@ -20,7 +20,7 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <CssBaseline>
         <Provider store={store}>
-          <App />
+          <App/>
         </Provider>
       </CssBaseline>
     </ThemeProvider>

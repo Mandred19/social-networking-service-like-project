@@ -1,9 +1,9 @@
-import React, { FC, ReactElement } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, {FC, ReactElement} from 'react';
+import {useLocation} from 'react-router-dom';
 
-import { createStyles, makeStyles, Typography } from '@material-ui/core';
+import {createStyles, makeStyles, Typography} from '@material-ui/core';
 
-import { navRouteList, navRouteItem } from '../helpers/navRouteList';
+import {navRouteItem, navRouteList} from '../helpers/navRouteList';
 
 import theme from '../theme';
 

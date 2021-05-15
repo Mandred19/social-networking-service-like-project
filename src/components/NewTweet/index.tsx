@@ -1,6 +1,6 @@
-import React, { FC, ReactElement } from 'react';
+import React, {ChangeEvent, FC, FormEvent, ReactElement, useState} from 'react';
 
-import { Avatar, Button, createStyles, IconButton, makeStyles, TextField, Theme } from '@material-ui/core';
+import {Avatar, Button, createStyles, IconButton, makeStyles, TextField, Theme} from '@material-ui/core';
 import PanoramaOutlinedIcon from '@material-ui/icons/PanoramaOutlined';
 
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
@@ -55,6 +55,8 @@ const NewTweet: FC = (): ReactElement => {
   /* TODO добавить получение аватара пользователя */
   const userAvatar = '';
 
+  const [newTwit, setNewTwit] = useState<string>('');
+
   const renderUserAvatar = () => {
     return userAvatar ? (
       <Avatar src={userAvatar} aria-label="recipe">
@@ -62,28 +64,46 @@ const NewTweet: FC = (): ReactElement => {
       </Avatar>
     ) : (
       <Avatar aria-label="recipe">
-        <AccountCircleOutlinedIcon fontSize="large" />
+        <AccountCircleOutlinedIcon fontSize="large"/>
       </Avatar>
     );
+  };
+
+  const inputChangeHandler = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
+    setNewTwit(e.target.value);
+  };
+
+  const formSubmitHandler = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    // TODO Отправка нового твита
+    console.warn(newTwit);
+    setNewTwit('');
   };
 
   return (
     <section className={classes.wrapper}>
       <div className={classes.avatarWrapper}>{renderUserAvatar()}</div>
 
-      <form className={classes.formWrapper}>
+      <form onSubmit={formSubmitHandler} className={classes.formWrapper}>
         <div className={classes.formWrapperText}>
-          <TextField id={'new-twit-input'} multiline placeholder={'What`s happening?'} rowsMax={15} variant={'outlined'} fullWidth />
+          <TextField
+            onChange={inputChangeHandler}
+            value={newTwit} id={'new-twit-input'}
+            multiline
+            placeholder={'What`s happening?'}
+            rowsMax={10}
+            variant={'outlined'}
+            fullWidth/>
         </div>
 
         <div className={classes.formWrapperFooter}>
           <div className={classes.formWrapperFooterMediaButtons}>
-            <IconButton aria-label={'Media'}>
-              <PanoramaOutlinedIcon />
+            <IconButton aria-label={'Media'} title={'Media'}>
+              <PanoramaOutlinedIcon color={'primary'}/>
             </IconButton>
           </div>
 
-          <Button type={'submit'} variant={'contained'} color={'primary'}>
+          <Button type={'submit'} variant={'contained'} color={'primary'} disabled={!newTwit.length}>
             Tweet
           </Button>
         </div>

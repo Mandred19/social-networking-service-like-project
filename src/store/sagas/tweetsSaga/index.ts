@@ -1,8 +1,8 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import {call, put, takeEvery} from 'redux-saga/effects';
 
-import { TWEETS_API } from '../../service/api/tweetsApi';
-import { TWEETS_LOADING_STATE } from '../../tweets/types';
-import { fetchTweets, setLoadingState, setTweets } from '../../tweets';
+import {TWEETS_API} from '../../service/api/tweetsApi';
+import {TWEETS_LOADING_STATE} from '../../tweets/types';
+import {fetchTweets, setLoadingState, setTweets} from '../../tweets';
 
 function* fetchTweetsRequest(): any {
   try {

@@ -1,4 +1,4 @@
-import { configureStore, ConfigureStoreOptions, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {configureStore, ConfigureStoreOptions, getDefaultMiddleware} from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
 import rootSaga from './sagas';
@@ -12,7 +12,7 @@ const options: ConfigureStoreOptions = {
   reducer: {
     tweets: tweetsReducer,
   },
-  middleware: [...getDefaultMiddleware({ thunk: false }), ...middlewares],
+  middleware: [...getDefaultMiddleware({thunk: false}), ...middlewares],
   devTools: process.env.NODE_ENV !== 'production',
 };
 

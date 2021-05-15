@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ITweetsState } from '../../tweets/types';
+import {ITweetsState} from '../../tweets/types';
 
 export const TWEETS_API = {
   async loadAllTweets(): Promise<ITweetsState['tweets']> {

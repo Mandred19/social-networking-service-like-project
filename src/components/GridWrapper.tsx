@@ -1,6 +1,6 @@
-import React, { PropsWithChildren, ReactElement } from 'react';
+import React, {PropsWithChildren, ReactElement} from 'react';
 
-import { createStyles, Grid, makeStyles, Container } from '@material-ui/core';
+import {Container, createStyles, Grid, makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -11,22 +11,22 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const GridWrapper = ({ FirstColumn, SecondColumn, ThirdColumn }: PropsWithChildren<any>): ReactElement => {
+const GridWrapper = ({FirstColumn, SecondColumn, ThirdColumn}: PropsWithChildren<any>): ReactElement => {
   const classes = useStyles();
 
   return (
     <Container className={classes.container}>
       <Grid container className={classes.container}>
         <Grid item xl={3} lg={2} className={classes.container}>
-          <FirstColumn />
+          <FirstColumn/>
         </Grid>
 
         <Grid item xl={5} lg={6} className={classes.container}>
-          <SecondColumn />
+          <SecondColumn/>
         </Grid>
 
         <Grid item xl={4} lg={4} className={classes.container}>
-          <ThirdColumn />
+          <ThirdColumn/>
         </Grid>
       </Grid>
     </Container>

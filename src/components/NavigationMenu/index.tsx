@@ -1,14 +1,12 @@
-import React, { FC, ReactElement } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, {FC, ReactElement} from 'react';
+import {Link, useLocation} from 'react-router-dom';
 
-import { Button, createStyles, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
+import {Button, createStyles, IconButton, makeStyles, Theme, Typography} from '@material-ui/core';
 
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-import { navRouteList, navRouteItem } from '../../helpers/navRouteList';
-
-import theme from '../../theme';
-import { betweenChildrenMixin } from '../../theme/styleMixins';
+import {navRouteItem, navRouteList} from '../../helpers/navRouteList';
+import {betweenChildrenMixin} from '../../theme/styleMixins';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       borderRight: '1px solid #999',
       height: '100%',
       paddingRight: theme.spacing(2),
-      ...betweenChildrenMixin({ marginBottom: theme.spacing(1) }),
+      ...betweenChildrenMixin({marginBottom: theme.spacing(1)}),
     },
     button: {},
   }),
@@ -33,7 +31,8 @@ const renderNavRouteList = () => {
   return navRouteList.map((item: navRouteItem) => {
     return (
       <Link to={item.to} key={item.id}>
-        <Button variant={'text'} color={route.pathname === item.to ? 'primary' : 'default'} size={'large'} className={classes.button} startIcon={item.icon}>
+        <Button variant={'text'} color={route.pathname === item.to ? 'primary' : 'default'} size={'large'}
+                className={classes.button} startIcon={item.icon}>
           <Typography variant={'h6'}>{item.title}</Typography>
         </Button>
       </Link>
@@ -48,7 +47,7 @@ const NavigationMenu: FC = (): ReactElement => {
     <section className={classes.wrapper}>
       <Link to={'/home'}>
         <IconButton color={'primary'} size={'medium'} className={classes.button}>
-          <TwitterIcon />
+          <TwitterIcon/>
         </IconButton>
       </Link>
 

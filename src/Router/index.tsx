@@ -1,5 +1,5 @@
-import React, { FC, ReactElement } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, {FC, ReactElement} from 'react';
+import {Route, Switch} from 'react-router-dom';
 
 import Authorization from '../screens/Authorization';
 import AuthorizationRegistration from '../screens/Authorization/AuthorizationRegistration';
@@ -11,15 +11,15 @@ const Router: FC = (): ReactElement => {
   return (
     <Switch>
       {/* Auth routes */}
-      <Route path="/authorization" exact component={Authorization} />
-      <Route path="/sign-up" exact component={AuthorizationRegistration} />
-      <Route path="/log-in" exact component={AuthorizationLogIn} />
+      <Route path="/authorization" exact component={Authorization}/>
+      <Route path="/sign-up" exact component={AuthorizationRegistration}/>
+      <Route path="/log-in" exact component={AuthorizationLogIn}/>
 
       {/* HomePage routes */}
-      <Route path="/home" exact component={Main} />
+      <Route path="/home" exact component={Main}/>
 
       {/* All */}
-      <Route path="/" component={Authorization} />
+      <Route path="/" component={Authorization}/>
     </Switch>
   );
 };
