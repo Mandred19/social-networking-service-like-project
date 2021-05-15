@@ -1,9 +1,11 @@
-import React, {ChangeEvent, FC, FormEvent, ReactElement, useState} from 'react';
+import React, {FC, FormEvent, ReactElement, useState} from 'react';
 
 import {Avatar, Button, createStyles, IconButton, makeStyles, TextField, Theme} from '@material-ui/core';
-import PanoramaOutlinedIcon from '@material-ui/icons/PanoramaOutlined';
 
+import PanoramaOutlinedIcon from '@material-ui/icons/PanoramaOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+
+import {inputChangeEventType, inputChangeHandler} from '../../helpers/inputChangeHandler';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,10 +71,6 @@ const NewTweet: FC = (): ReactElement => {
     );
   };
 
-  const inputChangeHandler = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
-    setNewTwit(e.target.value);
-  };
-
   const formSubmitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     // TODO Отправка нового твита
@@ -87,7 +85,7 @@ const NewTweet: FC = (): ReactElement => {
       <form onSubmit={formSubmitHandler} className={classes.formWrapper}>
         <div className={classes.formWrapperText}>
           <TextField
-            onChange={inputChangeHandler}
+            onChange={(e: inputChangeEventType) => inputChangeHandler(e, setNewTwit)}
             value={newTwit} id={'new-twit-input'}
             multiline
             placeholder={'What`s happening?'}

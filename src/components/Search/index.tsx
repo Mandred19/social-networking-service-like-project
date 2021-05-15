@@ -1,7 +1,10 @@
-import React, {ChangeEvent, FC, ReactElement, useState} from 'react';
+import React, {FC, ReactElement, useState} from 'react';
 
 import {createStyles, InputAdornment, makeStyles, TextField, Theme} from '@material-ui/core';
+
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+
+import {inputChangeEventType, inputChangeHandler} from '../../helpers/inputChangeHandler';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,13 +20,9 @@ const Search: FC = (): ReactElement => {
   const classes = useStyles();
   const [search, setSearch] = useState<string>('');
 
-  const changeInputHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-    setSearch(e.target.value);
-  };
-
   return (
     <TextField
-      onChange={changeInputHandler}
+      onChange={(e: inputChangeEventType) => inputChangeHandler(e, setSearch)}
       value={search}
       placeholder={'Search'}
       variant={'outlined'}

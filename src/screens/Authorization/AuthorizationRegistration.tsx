@@ -1,8 +1,10 @@
-import React, {FC, ReactElement} from 'react';
+import React, {FC, FormEvent, ReactElement, useState} from 'react';
 
 import {Button, createStyles, makeStyles, TextField, Theme, Typography} from '@material-ui/core';
 
 import TwitterIcon from '@material-ui/icons/Twitter';
+
+import {inputChangeEventType, inputChangeHandler} from '../../helpers/inputChangeHandler';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -55,10 +57,14 @@ const useStyles = makeStyles((theme: Theme) =>
 const AuthorizationRegistration: FC = (): ReactElement => {
   const classes = useStyles();
 
-  const signUp = (e: React.SyntheticEvent) => {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+
+  const signUp = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const target = e.target as HTMLInputElement;
-    console.warn(target.value);
+    console.warn(name, email);
+    setName('');
+    setEmail('');
   };
 
   return (
@@ -78,11 +84,26 @@ const AuthorizationRegistration: FC = (): ReactElement => {
       </div>
 
       <div className={classes.inputGroup}>
-        <TextField type={'text'} variant={'outlined'} className={classes.input} autoFocus fullWidth label={'Name'}
-                   placeholder={'Name'}/>
+        <TextField
+          onChange={(e: inputChangeEventType) => inputChangeHandler(e, setName)}
+          value={name}
+          type={'text'}
+          variant={'outlined'}
+          className={classes.input}
+          autoFocus
+          fullWidth
+          label={'Name'}
+          placeholder={'Name'}/>
 
-        <TextField type={'email'} variant={'outlined'} className={classes.input} fullWidth label={'Email'}
-                   placeholder={'Email'}/>
+        <TextField
+          onChange={(e: inputChangeEventType) => inputChangeHandler(e, setEmail)}
+          value={email}
+          type={'email'}
+          variant={'outlined'}
+          className={classes.input}
+          fullWidth
+          label={'Email'}
+          placeholder={'Email'}/>
       </div>
     </form>
   );

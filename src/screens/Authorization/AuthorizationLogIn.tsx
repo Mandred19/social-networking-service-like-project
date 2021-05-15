@@ -1,12 +1,12 @@
-import React, {ChangeEvent, Dispatch, FC, FormEvent, ReactElement, SetStateAction, useState} from 'react';
-
+import React, {FC, FormEvent, ReactElement, useState} from 'react';
 import {Link} from 'react-router-dom';
-
-import theme from '../../theme';
 
 import {Button, createStyles, makeStyles, TextField, Theme, Typography} from '@material-ui/core';
 
 import TwitterIcon from '@material-ui/icons/Twitter';
+
+import theme from '../../theme';
+import {inputChangeEventType, inputChangeHandler} from '../../helpers/inputChangeHandler';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,10 +48,6 @@ const AuthorizationLogIn: FC = (): ReactElement => {
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>, setStateHandler: Dispatch<SetStateAction<string>>): void => {
-    setStateHandler(e.target.value);
-  };
-
   const logIn = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.warn(login, password);
@@ -71,7 +67,7 @@ const AuthorizationLogIn: FC = (): ReactElement => {
 
       <form onSubmit={logIn} className={classes.form} autoComplete="off">
         <TextField
-          onChange={(e: ChangeEvent<HTMLInputElement>) => inputChangeHandler(e, setLogin)}
+          onChange={(e: inputChangeEventType) => inputChangeHandler(e, setLogin)}
           value={login}
           type={'text'}
           variant={'outlined'}
@@ -82,7 +78,7 @@ const AuthorizationLogIn: FC = (): ReactElement => {
           placeholder={'Phone, email, or username'}/>
 
         <TextField
-          onChange={(e: ChangeEvent<HTMLInputElement>) => inputChangeHandler(e, setPassword)}
+          onChange={(e: inputChangeEventType) => inputChangeHandler(e, setPassword)}
           value={password}
           type={'password'}
           variant={'outlined'}
